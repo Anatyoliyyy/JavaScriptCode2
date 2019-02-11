@@ -1,0 +1,195 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+HexCell
+</name>
+</assembly>
+<members>
+<member name="P:HexCell.HexGridCellCtrl.Column">
+	<summary>
+ The column (1-16) that contains this cell
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>This value is read left to right
+ </remarks>
+</member><member name="P:HexCell.HexGridCellCtrl.Row">
+	<summary>
+ The row (1-16) that contains this cell
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>This value is read from top to bottom
+ </remarks>
+</member><member name="P:HexCell.HexGridCellCtrl.CellValue">
+	<summary>
+ Returns an integer which defines the remaining possible colour(s) in this cell
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>Individual <see cref="T:HexCell.HexGridCellCtrl.CellPossibleValues">possible values</see> are combined with 
+ a boolean OR operation to generate this value
+ </remarks>
+</member><member name="P:HexCell.HexGridCellCtrl.SingleValueSelected">
+	<summary>
+ Returns true if only one of the 16 possible values is left
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.ToString">
+	<summary>
+ Returns row,column
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.Drawcell(System.Drawing.Graphics,System.Drawing.Rectangle)">
+	<summary>
+ Draws this cell onto the graphics object passed in, with a 4x4 grid of possible values
+ </summary>
+	<param name="g"></param>
+	<param name="rcBounds"></param>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.IsValuePossible(HexCell.HexGridCellCtrl.CellPossibleValues)">
+	<summary>
+ Returns true if the colour is one of the remaining possible colours
+ </summary>
+	<param name="Value"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:HexCell.HexGridCellCtrl.Locked">
+	<summary>
+ Whether this value can be changed by the user
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.SetValue(HexCell.HexGridCellCtrl.CellPossibleValues)">
+	<summary>
+ Adds the value to the possible values for this cell
+ </summary>
+	<param name="value"></param>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.UnsetValue(HexCell.HexGridCellCtrl.CellPossibleValues)">
+	<summary>
+ Removes the value from the possible colour values held by this hex cell
+ </summary>
+	<param name="Value"></param>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.AllPossibleValues">
+	<summary>
+ Returns a value indicating that the cell can hold all possible values
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.#ctor(System.Int16,System.Int16)">
+	<summary>
+ Creates a new empty cell at the position specified
+ </summary>
+	<param name="RowIn">The row that this cell is in</param>
+	<param name="ColumnIn">The column that this cell is in</param>
+	<remarks></remarks>
+</member><member name="P:HexCell.HexGridValueChangedEventArgs.Value">
+	<summary>
+ Which of the possible values it was clicked over
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:HexCell.HexGridValueChangedEventArgs">
+	<summary>
+ Event argument for when a mouse click occurs on one of the coloured counters.
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:HexCell.HexGridCellPossibleValuesDecoder.ToBooleanList(System.Int32)">
+	<summary>
+ Returns a list of integer (0-15) and whether or not they are a possible value in the values passed in
+ </summary>
+	<param name="Possiblevalues"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCollection.#ctor">
+	<summary>
+ Creates a new empty 16x16 grid of HexGridCell objects
+ </summary>
+	<remarks></remarks>
+</member><member name="T:HexCell.HexGridCellCollection">
+	<summary>
+ Represents the 64 cells that make up a hex grid
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:HexCell.Form1.RestartGridChecking">
+	<summary>
+ Restarts the process of checking through the grid to see if any cells are in error 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:HexCell.Form1.RefreshFeedback">
+	<summary>
+ Refresh the three feedback cells to show the current state of the grid column, row and quadrant
+ </summary>
+	<remarks></remarks>
+</member><member name="P:HexCell.HexGrid.SelectedCell">
+	<summary>
+ The currently selected cell in the grid
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:HexCell.HexGrid.Row(System.Int32)">
+	<summary>
+ Returns all the grid cells in the selected row
+ </summary>
+	<param name="RowIndex">The index of the row (1-16) to get</param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:HexCell.HexGrid.Column(System.Int32)">
+	<summary>
+ Returns all the grid cells in the selected column
+ </summary>
+	<param name="ColumnIndex">The index of the column (1-16) to get</param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:HexCell.HexGrid.Quadrant(System.Int32,System.Int32)">
+	<summary>
+ Returns the selected quadrant (4 x 4 cells)
+ </summary>
+	<param name="QuadrantRow">The row (1-4) of the quadrant</param>
+	<param name="QuadrantColumn">The column (1-4) of the quadrant</param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:HexCell.HexGrid.CellValue(System.Int32,System.Int32)">
+	<summary>
+ The value of the cell at the given location
+ </summary>
+	<param name="Row"></param>
+	<param name="Column"></param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGrid.ResetGridCellCollection">
+	<summary>
+ Clears the grid cell collection to an empty (unsolved) grid
+ </summary>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGrid.GridCellLocationRectangle(System.Int32,System.Int32)">
+	<summary>
+ Returns a rectangle representing the boundary of a given grid cell position
+ </summary>
+	<param name="Row"></param>
+	<param name="Column"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:HexCell.CellSelectedEventArgs">
+	<summary>
+ Event argument extra data for the cell selected event
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .slider {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .slider__container {
+            height: 400px;
+            width: 70%;
+            background-size: cover;
+            background-position: center;
+            /* background-image: url('./img/1.jpg'); */
+        }
+
+        .slider__controls {
+            display: flex;
+            margin-top: 30px;
+        }
+
+        .slider__control {
+            margin: 0 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #bbb;
+            cursor: pointer;
+        }
+
+        .slider__control--isActive {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider">
+        <div class="slider__container"></div>
+        <div class="slider__controls">
+            <!-- <div class="slider__control slider__control--isActive"></div>
+            <div class="slider__control"></div>
+            <div class="slider__control"></div> -->
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

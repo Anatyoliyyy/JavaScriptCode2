@@ -1,0 +1,13 @@
+<h1 class="headline">{{ headline }}</h1>
+
+<div class="container">
+    <ul>
+        <li *ngFor = 'let user of users'>
+          {{user.name}}
+          <button (click) = "removeUser(user.name)">Remove</button>
+        </li>
+      </ul>
+      
+      <input type="text" #input>
+      <button (click) = "addUser(input.value); input.value = '' ">Add user</button>
+</div>

@@ -1,0 +1,62 @@
+@mixin circle($width, $cwhite) {
+	width: $width;
+	height: $width;
+	border-radius: $width/2;
+	background-color: $cwhite;
+}
+
+@function rem($px) {
+	@return $px / 16px+0rem;
+}
+
+
+@mixin tablets {
+	@media screen and (max-width: 768px) {
+	@content;	
+	}
+}
+
+@mixin phones {
+	@media screen and (max-width: 480px) {
+	@content;	
+	}
+}
+
+@mixin iphone {
+	@media screen and (max-width: 320px) {
+		@content;
+	}
+}
+
+@mixin iphone6 {
+	@media screen and (max-width: 675px) {
+		@content;
+	}
+}
+
+@mixin iphone520 {
+	@media screen and (max-width: 520px) {
+		@content;
+	}
+}
+
+@mixin size930 {
+	@media screen and (max-width: 930px) {
+		@content;
+	}
+}
+
+@mixin iphone6s {
+	@media screen and (max-width: 375px) {
+		@content;
+	}
+}
+
+@mixin iphone6se {
+	@media screen and (max-width: 667px) {
+		@content;
+	}
+}
+
+
+

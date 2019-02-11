@@ -1,0 +1,542 @@
+.order {
+	width: 100%;
+	height: 100%;
+	min-height: rem(650px);
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, .31);
+	background: url('../img/background/bg-order.png') no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.order__title {
+	font-size: rem(72px);
+	@include gagalin();
+	color: $cyellow;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 3rem;
+
+	@include tablets {
+		margin-bottom: 0;
+		text-align: center;
+	}
+	@include phones {
+		font-size: rem(50px);
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	@include iphone {
+		text-align: center;
+		width: 50%;
+	}
+
+	@include iphone6 {
+		text-align: center;
+		font-size: rem(55px);
+	}
+	@include iphone520 {
+		text-align: center;
+	}
+
+
+}
+
+.container-order {
+	height: 100%;
+	justify-content: center;
+	@include iphone {
+		align-items: center;
+	}
+}
+
+.form__title {
+	color: #fff;
+	font-family: ubuntu();
+	font-size: rem(14px);
+	margin-bottom: rem(10px);
+	@include phones {
+		&:last-child {
+			opacity: 0;
+			margin-bottom: .25rem;
+		}
+		@include phones {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.form__element {
+	display: flex;
+
+	@include iphone {
+		margin-bottom: rem(20px);
+	}
+}
+
+.form__label {
+	flex: 1;
+	margin-bottom: rem(18px);
+	margin-right: rem(20px);
+	@include phones {
+		margin-bottom: 1.5rem;
+	}
+	@include tablets {
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+
+textarea:focus {
+	outline: none;
+	border: rem(2px) solid #f9b43b;
+	box-shadow: rem(1px) rem(1px) rem(2px) 0 #f9b43b;
+	padding-left: rem(10px);
+}
+
+input:focus {
+	outline: none;
+	border: rem(2px) solid #f9b43b;
+	box-shadow: rem(1px) rem(1px) rem(2px) 0 #f9b43b;
+	padding-left: rem(10px);
+}
+
+.form__input-appartment {
+	@include phones {
+		margin-left: 0;
+	}
+}
+
+.form__input {
+	margin-right: rem(20px);
+	width: 100%;
+
+	@include tablets {
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.form__input-field {
+	width: 100%;
+	border: rem(5px);
+	height: rem(35px);
+	border-radius: rem(6px);
+	margin-bottom: rem(20px);
+	padding-left: rem(10px);
+
+	@include tablets {
+		&:last-child {
+		margin-right: 0;
+	}
+}
+}
+
+.form__left {
+	width: 50%;
+	@include phones {
+		width: 100%;
+	}
+
+	@include tablets {
+		width: 100%;
+	}
+}
+
+.form__textarea-title {
+	color: #fff;
+	@include ubuntu();
+	font-size: rem(14px);
+	margin-bottom: 0.625rem;
+	@include phones {
+		margin-bottom: .25rem;
+	}
+}
+
+textarea:focus {
+	@include phones {
+		border: rem(3px) solid #f9b43b;
+		box-shadow: rem(1px) rem(1px) rem(2px) 0 #f9b43b;
+		margin-bottom: 3rem;
+	}
+}
+
+.form__textarea-field {
+	width: 100%;
+	height: rem(118px);
+	resize: none;
+	border-radius: rem(6px);
+	border: none;
+	padding-top: rem(10px);
+	padding-left: rem(10px);
+	
+	@include tablets {
+		width: 100%;
+		overflow-x: hidden;
+	}
+	@include phones {
+		width: 100%;
+		margin-bottom: 0;
+		overflow-x: hidden;
+	}
+	@include iphone {
+		width: 100%;
+		overflow-x: hidden;
+	}
+}
+
+.form__class {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.form__right {
+	width: 50%;
+
+	@include tablets {
+		margin-left: 0;
+		width: 100%;
+	}
+	@include phones {
+		width: 100%;
+	}
+}
+
+.container__change {
+	width: 95%;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	@include phones {
+		flex-direction: column;
+	}
+	@include tablets {
+		width: 95%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+// radio-button
+.form__radio {
+	display: flex;
+	align-items: center;
+	position: relative;
+	display: flex;
+	margin-right: rem(16px);
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.form__trans-btn {
+	margin-left: rem(2px);
+}
+
+.form__transp {
+	color: #fff;
+	text-decoration: none;
+	padding: rem(10px) rem(10px);
+	width: rem(100px);
+	transition: all .3s;
+	background-color: transparent;
+	border: 2px solid #e35028;
+	border-radius: rem(6px);
+	font-size: rem(14px);
+	font-weight: 400;
+	@include ubuntu();
+	cursor: pointer;
+	outline: none;
+
+	&:hover {
+		color: #e35028;
+		transition: all .3s;
+	}
+}
+
+.form-button__style {
+	min-width: rem(98px);
+	padding: rem(10px) rem(15px);
+	border-radius: rem(6px);
+	background-color: $corange;
+	text-decoration: none;
+	color: $cwhite;
+	font-size: rem(13px);
+	text-transform: uppercase;
+	transition: .6s;
+	font-weight: 500;
+	margin-right: rem(10px);
+	display: inline-block;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	&:hover {
+		background-color: darken($corange, 7%);
+	}
+}
+
+.popup__link {
+	min-width: rem(98px);
+	padding: rem(10px) rem(15px);
+	border-radius: rem(5px);
+	background-color: $corange;
+	text-decoration: none;
+	color: $cwhite;
+	font-size: rem(13px);
+	text-transform: uppercase;
+	transition: .6s;
+	font-weight: 500;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+	&:hover {
+		background-color: darken($corange, 7%);
+	}
+}
+
+.fancybox-close-small {
+	display: none;
+	z-index: 0;
+	width: 0;
+	height: 0;
+}
+
+.fancybox-slide > * {
+
+	border: 2spx solid #e45028;
+
+}
+
+.popup__link-button {
+	padding: rem(10px) rem(15px);
+	border-radius: rem(5px);
+	background-color: $corange;
+	text-decoration: none;
+	color: $cwhite;
+	font-size: rem(13px);
+	text-transform: uppercase;
+	transition: .6s;
+	font-weight: 500;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+}
+
+.popup__text {
+	@include lifehack();
+	font-weight: 300;
+}
+
+.form-button-margin {
+	margin-left: 0;
+	@include tablets {
+		margin-left: 0;
+	}
+}
+
+.popup-title {
+	@include gagalin;
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+}
+
+.form__btns {
+	display: flex;
+	align-items: center;
+	padding-top: rem(20px);
+	@include phones {
+		justify-content: center;
+		margin-top: 1.5rem;
+	}
+	@include iphone {
+		margin-top: 0;
+	}
+}
+
+.form__checkbox-button {
+	margin-right: rem(10px);
+}
+
+.form__title-dont {
+	color: #fff;
+	@include ubuntu();
+	font-size: rem(14px);
+	font-weight: 400;
+}
+
+.form__buttons {
+	display: flex;
+	margin-top: 1.1rem;
+	@include phones {
+		justify-content: center;
+		margin-bottom: 1.15rem;
+	}
+	@include iphone {
+	}
+}
+
+.form__radio-title {
+	color: #fff;
+}
+
+.form__type-radio {
+	position: absolute;
+	top: 0;
+	left: rem(-9999px);
+	margin-right: rem(10px);
+}
+
+.form__radio-img {
+	width: rem(16px);
+	height: rem(16px);
+	border-radius: 50%;
+	background-color: #fff;
+	position: relative;
+	margin-right: rem(10px);
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+.form__radio-img:after {
+	position: absolute;
+	content: '';
+	width: rem(8px);
+	height: rem(8px);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: $corange;
+	border-radius: 50%;
+	opacity: 0;
+}
+
+.form__type-radio:checked + .form__radio-img:after {
+	opacity: 1;
+	transition: .5s;
+}
+
+.input__type-radio {
+	margin-right: rem(10px);
+}
+
+// checkbox
+
+.form__checkbox {
+	margin-top: 1.45rem;
+}
+.form__checkbox-item {
+	display: flex;
+	align-items: center;
+	position: relative;
+	@include phones {
+		justify-content: center;
+	}
+}
+
+.form__checkbox-button {
+	position: absolute;
+	top: 0;
+	left: rem(-9999px);
+}
+
+.form__img {
+	width: rem(15px);
+	height: rem(15px);
+	background-color: #fff;
+	position: relative;
+	margin-right: rem(10px);
+	cursor: pointer;
+}
+
+.form__input-phone {
+	@include phones {
+		padding-left: rem(20px);
+	}
+
+	@include tablets {
+		padding-left: 0;
+	}
+}
+
+.form__img:after {
+	position: absolute;
+	content: "";
+	background-image: url('../img/content/box1.png');
+	width: rem(15px);
+	height: rem(15px);
+	left: -38%;
+	top: -32%;
+	transform: translate(50%, 50%);
+	background-repeat: no-repeat;
+	opacity: 0;
+}
+
+.form__checkbox-button:checked + .form__img:after {
+	opacity: 1;
+	transition: all .3s;
+}
+
+
+
+// modal window
+
+
+
+
+.form-flex {
+	display: flex;
+	@include tablets {
+		flex-direction: column;
+	}
+
+	@include tablets { 
+		flex-direction: column;
+	}
+
+	@include phones {
+		flex-direction: column;
+	}
+
+	@include iphone {
+		flex-direction: column;
+	}
+
+	@include iphone6 {
+		flex-direction: column;
+	}
+
+	@include iphone520 {
+		flex-direction: column;
+	}
+
+	@include size930 {
+
+	}
+
+	@include iphone6s {
+		flex-direction: column;
+	}
+}
+
+.sent {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	color: #fff;
+	@include tablets {
+		top: 100%;
+		left: 0;
+	}
+}
+

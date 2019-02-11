@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+.box {
+	width: 100px;
+	height: 100px;
+	background-color: red;
+}
+.slider {
+	width: 700px;
+	margin: 0 auto;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.slider__image {
+	display:block; 
+	margin:0 auto;
+	height: 390px;
+	width: 363px;
+	background-size: cover;
+	background-position: center;
+	margin-bottom: 30px;
+}
+.slider__controls {
+	display: flex;
+	justify-content: center;
+}
+.slider__control {
+	width: 15px;
+	height: 15px;
+	background-color: #000;
+	margin: 0 10px;
+	cursor: pointer;
+}
+.slider__control--isActive {
+	border: 1px solid #FD8642;
+}

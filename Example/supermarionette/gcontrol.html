@@ -1,0 +1,37 @@
+<HTML>
+<FORM NAME="f_gcontrol">
+<HEAD>
+<TITLE>GAME CONTROL</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var gsd="0";
+var gsdchk="99";
+
+function gsend1(gsd){;
+gsdchk=parent.gfield.document.f_gfield.pau.value;
+if (gsdchk == "99"){gsd="0"};
+if (gsdchk == "98"){gsd="0"};
+parent.gfield.document.f_gfield.MES.value=gsd;
+};
+
+function btn0clk(){;
+gsend1("00");
+};
+
+function btn1clk(){;
+gsend1("01");
+};
+
+function btn2clk(){;
+gsend1("02");
+};
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR="#FFCCCC" TEXT="#004400" LINK="#FFCCCC" VLINK="#FFCCCC">
+<CENTER><A HREF="javascript:btn1clk()" onMouseOver="parent.gfield.document.f_gfield.MES.value='1'"><IMG SRC="btn1.gif"></A><A HREF="javascript:btn0clk()" onMouseOver="parent.gfield.document.f_gfield.MES.value='0'"><IMG SRC="btn0.gif"></A><A HREF="javascript:btn2clk()" onMouseOver="parent.gfield.document.f_gfield.MES.value='2'"><IMG SRC="btn2.gif"></A></CENTER>
+</BODY>
+</FORM>
+</HTML>

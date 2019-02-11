@@ -1,0 +1,44 @@
+body, ul {
+    margin: 0;
+    padding: 0;
+	font-size: 18px;
+}
+
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.wrapper {
+	max-width: 1024px;
+	padding: 0 30px;
+	margin: 0 auto;
+}
+
+nav {
+	background: #f1f2f4;
+	}
+
+.menu {
+	position: relative;
+	}
+
+.menu li {
+	float: left; /* пункты меню в ряд */
+	list-style: none;
+}
+
+.menu li a {
+	display: inline-block;
+	padding: 10px 15px;
+	text-decoration: none;
+	color: #044cf1;
+	
+}
+
+.menuBurger {
+	padding: 10px 15px;
+	display: none;      /* кнопка гамбургер скрыта */
+	cursor: pointer;
+}

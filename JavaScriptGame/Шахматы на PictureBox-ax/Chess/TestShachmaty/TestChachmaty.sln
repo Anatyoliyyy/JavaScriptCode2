@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestChachmaty", "TestChachmaty\TestChachmaty.vbproj", "{827FC71F-2B02-4D1F-97CA-8B7D3717B75D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{827FC71F-2B02-4D1F-97CA-8B7D3717B75D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827FC71F-2B02-4D1F-97CA-8B7D3717B75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827FC71F-2B02-4D1F-97CA-8B7D3717B75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827FC71F-2B02-4D1F-97CA-8B7D3717B75D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

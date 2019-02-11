@@ -1,0 +1,584 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Othello</TITLE>
+   <META NAME="Author" CONTENT="Andrey A. Grachyov">
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+<SCRIPT language="JavaScript"><!--
+var Empty=0;
+var Pl1=1;
+var Pl2=2;
+var Field= new Array(64);
+var Plr,HW;
+function Matrix(i,j)
+{
+ return (((i-1)*8)+j-1);
+}
+function NotPlayer(Pl)
+{
+ if (Pl==Pl1)
+  { return Pl2; }
+ else
+  { return Pl1; };
+}
+function InitField()
+{
+ var i;
+ for (i=0;i<64;i++)
+  { Field[i]=Empty; };
+// Field[Matrix(4,4)]=Pl1;
+// Field[Matrix(5,5)]=Pl1;
+// Field[Matrix(4,5)]=Pl2;
+// Field[Matrix(5,4)]=Pl2;
+}
+function GetNum(Player)
+{
+var i,N=0;
+ for (i=0;i<64;i++)
+  { if (Field[i]==Player)
+    { N++; }; };
+  return N;
+}
+function ComputerPlace(Player)
+{
+ var PlaceTable=new Array(1,8,2,2,2,2,8,1,8,8,6,5,5,6,8,8,2,6,4,3,3,4,6,2,2,5,3,1,1,3,5,2,2,5,3,1,1,3,5,2,2,6,4,3,3,4,6,2,8,8,6,5,5,6,8,8,1,8,2,2,2,2,8,1);
+ var PlX=new Array (61);
+ var PlY=new Array (61);
+ var NPl=0,I,J,MaxE=0,E,MinPr=9;
+ for (I=1;I<=8;I++) {
+  for (J=1;J<=8;J++)
+   {
+    E=Place(I,J,Player,false);
+    if ((MinPr>PlaceTable[Matrix(I,J)]) && (E<0xFF) && (E>0))
+     {
+      MinPr=PlaceTable[Matrix(I,J)];
+      NPl=0;
+      MaxE=0;
+     }
+    if ((E<0xFF) && (MinPr==PlaceTable[Matrix(I,J)]))
+     {
+      if (E>MaxE)
+       {
+        MaxE=E;
+        NPl=1;
+        PlX[1]=I;
+        PlY[1]=J;
+       }
+      else
+       {
+        if (E==MaxE)
+         {
+          NPl++;
+          PlX[NPl]=I;
+          PlY[NPl]=J;
+         };
+       };
+     };
+   }; };
+ E=(Math.floor(Math.random()*NPl))+1;
+ Place(PlX[E],PlY[E],Player,true);
+ return ((PlX[E] << 4) | PlY[E]);
+}
+function CanPlace(Player)
+{
+ var I,J,E=0,E1;
+ for (I=1;I<=8;I++) {
+  for (J=1;J<=8;J++)
+   {
+    E1=Place(I,J,Player,false);
+    if (E1<0xFF)
+     { E+=E1; };
+   }; };
+ if (E>0)
+  {return true;}
+ else
+  { return false;}
+}
+function Place(x,y,Player,Placed)
+/*0..64 - Ok (Съедено)
+ $FF - not empty*/
+{
+ var I,J,x1,y1,Eated,E;
+ if (Field[Matrix(x,y)]!=Empty)
+  {
+   return (0xFF);
+  }
+ else
+  {
+   Eated=0;
+   for (I=-1;I<=1;I++)
+    {
+     for (J=-1;J<=1;J++)
+      {
+       E=0;
+       x1=x+I;
+       y1=y+J;
+       while (((x1>=1) && (x1<=8) && (y1>=1) && (y1<=8)) && (Field[Matrix(x1,y1)]!=Empty) && (Field[Matrix(x1,y1)]!=Player))
+        {
+         E++;
+         x1=x1+I;
+         y1=y1+J;
+        }
+       if ((Placed) && ((x1>=1) && (x1<=8) && (y1>=1) && (y1<=8)) && (Field[Matrix(x1,y1)]!=Empty) && (E>0))
+        {
+         Field[Matrix(x,y)]=Player;
+         x1=x+I;
+         y1=y+J;
+         while (((x1>=1) && (x1<=8) && (y1>=1) && (y1<=8)) && (Field[Matrix(x1,y1)]!=Empty) && (Field[Matrix(x1,y1)]!=Player))
+          {
+           Field[Matrix(x1,y1)]=Player;
+           x1=x1+I;
+           y1=y1+J;
+          }
+         }
+       if (((x1>=1) && (x1<=8) && (y1>=1) && (y1<=8)) && (Field[Matrix(x1,y1)]!=Empty))
+        Eated+=E;
+      }
+    }
+   return (Eated);
+  }
+}
+// -->
+</SCRIPT>
+<SCRIPT language="JavaScript"><!--
+var CurrPlayer,Computer,InGame=false,NumPl1,NumPl2;
+function Result()
+{
+ if (NumPl1>NumPl2)
+  { alert('White is WIN !'); }
+ else
+  { if (NumPl1<NumPl2)
+     { alert('Blue is WIN !'); }
+    else
+     { alert('DRAW !'); };
+  };
+}
+function InitMainWindow()
+{
+ if (document.main.vs[0].checked)
+  {Computer=Pl2;};
+ if (document.main.vs[1].checked)
+  {Computer=Pl1;};
+ if (document.main.vs[2].checked)
+  {Computer=Empty;};
+ NumPl1=GetNum(Pl1);
+ NumPl2=GetNum(Pl2);
+ CurrPlayer=Pl1;
+ InGame=true;
+}
+function NewGame()
+{
+ var i;
+ InitField();
+ redraw();
+ for (i=0;i<4;i++)
+  {
+   Field[Matrix(i+1,i+1)]=Pl1;
+   Field[Matrix(8-i,8-i)]=Pl1;
+   Field[Matrix(i+1,8-i)]=Pl2;
+   Field[Matrix(8-i,i+1)]=Pl2;
+   redraw();
+  }
+ for (i=0;i<3;i++)
+  {
+   Field[Matrix(i+1,i+1)]=Empty;
+   Field[Matrix(8-i,8-i)]=Empty;
+   Field[Matrix(i+1,8-i)]=Empty;
+   Field[Matrix(8-i,i+1)]=Empty;
+   redraw();
+  }
+ CurrPlayer=Pl1;
+ NumPl1=2;
+ NumPl2=2;
+ InGame=true;
+ redraw();
+ redrawstatus();
+}
+function Clk(n)
+{
+ var Placed;
+ if ((CurrPlayer==Computer) || (! InGame) || (CurrPlayer==0xFF))
+  { }
+ else
+  {
+   Placed=Place((Math.floor(n/8))+1,(n%8)+1,CurrPlayer,false);
+   if (Placed==0)
+    { alert("You cann't put on this place!"); }
+   else
+    { if (Placed==0xFF)
+       { alert("This place isn't empty"); }
+      else
+       {
+        Placed=Place((Math.floor(n/8))+1,(n%8)+1,CurrPlayer,true);
+        CurrPlayer=NotPlayer(CurrPlayer);
+        NumPl1=GetNum(Pl1);
+        NumPl2=GetNum(Pl2);
+        redraw();
+        document.main.cur.value="Checking...";
+        if ((! CanPlace(Pl1)) && (! CanPlace(Pl2)))
+         { InGame=false; Result(); };
+        if (! CanPlace(CurrPlayer))
+         { CurrPlayer=NotPlayer(CurrPlayer); };
+        redrawstatus();
+       };
+    };
+  };
+}
+function Timer()
+{
+ var PPP,IDTimer;
+ if ((InGame) & (CurrPlayer==Computer))
+  {
+   document.main.cur.value="Thinking...";
+   if (CanPlace(CurrPlayer))
+    {
+     PPP=ComputerPlace(CurrPlayer);
+//     Place(PPP >> 4,PPP & 0x0F,CurrPlayer,true);
+     NumPl1=GetNum(Pl1);
+     NumPl2=GetNum(Pl2);
+     redraw();
+    }
+   document.main.cur.value="Checking...";
+   CurrPlayer=NotPlayer(CurrPlayer);
+   if ((! CanPlace(Pl1)) && (! CanPlace(Pl2)))
+    { InGame=false; Result(); };
+   if (! CanPlace(CurrPlayer))
+    { CurrPlayer=NotPlayer(CurrPlayer); };
+   redrawstatus();
+  };
+ IDTimer=setTimeout("Timer()",400);
+}
+// -->
+</SCRIPT>
+<SCRIPT language="JavaScript"><!--
+// preload images
+ var black=new Array(3);
+ var white=new Array(3);
+ var AboutString='<TITLE>About</TITLE><BODY BGCOLOR="#eeeeee"><CENTER><FORM><TABLE ALIGN=CENTER BORDER=5><TR><TD><B><U><FONT SIZE=4 COLOR="blue">OTHELLO<FONT></U></B></TD></TR></TABLE>'+
+                 '<FONT COLOR="#808000"><I>Version</I> 1.0</FONT><FONT SIZE=-1> (JavaScript version)</FONT><br>'+
+		 '<FONT SIZE=-2>(c) Copyright by Andrey A. Grachyov</FONT>'+                 '<HR><INPUT TYPE="BUTTON" VALUE=" Ok " onClick="window.close();"</FORM></CENTER></BODY>';
+ function ShowAbout() { var TT; TT=window.open('','TT','height=130,width=250,toolbar=0,location=0,directories=0,menubar=0,scrollbars=0,status=0,resizable=0'); TT.document.write(AboutString); TT.document.close(); }; function preloadimages()
+ {
+ var i;
+ for (i=0;i<3;i++)
+  { black[i]= new Image(50,50);
+    white[i]= new Image(50,50);
+    black[i].src="b"+i+".gif";
+    white[i].src="w"+i+".gif";
+  };
+ };
+ preloadimages();
+ function redraw()
+ {
+  var i,f,ssss="--------------------";
+  for (i=0;i<64;i++)
+   {
+    if ((((((i%8)+1)*9)+(Math.floor(i/8)))%2)!=0) {f=white}
+    else {f=black};
+    if (Field[i]==Empty) { document.images[i].src=f[0].src};
+    if (Field[i]==Pl1) { document.images[i].src=f[1].src};
+    if (Field[i]==Pl2) { document.images[i].src=f[2].src};
+   };
+  document.main.wbut.value=NumPl1;
+  document.main.bbut.value=NumPl2;
+  if (NumPl1>NumPl2)
+   { i=10-Math.floor((NumPl1*10)/(NumPl1+NumPl2)); };
+  if (NumPl1<NumPl2)
+   { i=10+Math.floor((NumPl2*10)/(NumPl1+NumPl2)); };
+  if (NumPl1==NumPl2)
+   { i=10; };
+  document.main.sr.value=ssss.substring(0,i)+"0"+ssss.substring(i,ssss.length);
+ }
+ function redrawstatus()
+ {
+  if (InGame)
+   { if (CurrPlayer==Pl1) { document.main.cur.value=" White "; }
+     else { document.main.cur.value=" Blue "; };
+   }
+  else { document.main.cur.value=" Game Finished "; };
+ }
+ function fstatus(n)
+ {
+  var S="Place [ ";
+    S+=unescape("%4"+((n%8)+1));
+    S+=9-((Math.floor(n/8))+1);
+    S+=" ]: "
+    if (Field[n]==Pl1) { S+="White"; };
+    if (Field[n]==Pl2) { S+="Blue"; };
+    if (Field[n]==Empty) { S+="<Empty>"; };
+    window.status=S;
+ }
+// -->
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#C0C0C0" TEXT="#000000">
+
+<FORM NAME="main"><CENTER><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 VALIGN="MIDDLE" >
+<TR ALIGN=CENTER VALIGN=CENTER>
+<TD></TD>
+
+<TD>A</TD>
+
+<TD>B</TD>
+
+<TD>C</TD>
+
+<TD>D</TD>
+
+<TD>E</TD>
+
+<TD>F</TD>
+
+<TD>G</TD>
+
+<TD>H</TD>
+
+<TD></TD>
+
+<TD ROWSPAN="10" WIDTH="60"></TD>
+<TD ROWSPAN="10" VALIGN=TOP ALIGN=LEFT>
+<BR><CENTER>
+<TABLE BORDER=3 CELLSPACING=2 CELLPADDING=5 VALIGN="MIDDLE">
+<TR>
+<TD COLSPAN="2" ALIGN=CENTER BGCOLOR="#888888" VALIGN=CENTER><CENTER><B><FONT COLOR="#F0F000" SIZE=+1>Statistic</FONT></B></CENTER></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER BGCOLOR="#888888" VALIGN=TOP WIDTH="50%"><CENTER><FONT COLOR="#FFFFFF">White</FONT><BR><INPUT TYPE="BUTTON" NAME="wbut" VALUE="----" onClick="alert('Score: White: '+NumPl1);"></CENTER></TD>
+<TD ALIGN=CENTER BGCOLOR="#888888" VALIGN=TOP WIDTH="50%"><CENTER><FONT COLOR="#0000FF">Blue</FONT><BR><INPUT TYPE="BUTTON" NAME="bbut" VALUE="----" onClick="alert('Score: Blue: '+NumPl2);"></CENTER></TD>
+</TR>
+<TR>
+<TD COLSPAN="2" ALIGN=CENTER BGCOLOR="#888888"><CENTER><INPUT TYPE="BUTTON" NAME="sr" VALUE="---------0---------" onClick="alert('Score: White: '+NumPl1+' Blue: '+NumPl2);"></CENTER></TD>
+</TR>
+<TR>
+<TD COLSPAN="2" VALIGN=TOP BGCOLOR="#888888"><CENTER><FONT COLOR="#10F0F0">Current place:</FONT><BR><INPUT TYPE="BUTTON" NAME="cur" VALUE=" Loading... " onClick="alert('Status: Current place:'+this.value);"></CENTER></TD>
+</TR>
+</TABLE><BR><HR><BR>
+<INPUT TYPE="BUTTON" NAME="newgame" VALUE=" New Game" onClick="NewGame()"><BR>
+</CENTER>
+<INPUT TYPE="RADIO" NAME="vs" VALUE="WvsC" onClick="Computer=Pl2" CHECKED> White vs Computer<BR>
+<INPUT TYPE="RADIO" NAME="vs" VALUE="BvsC" onClick="Computer=Pl1"> Blue vs Computer<BR>
+<INPUT TYPE="RADIO" NAME="vs" VALUE="WvsB" onClick="Computer=Empty"> White vs Blue<BR><CENTER><HR>
+<TABLE BORDER=0 VALIGN="MIDDLE"><TR><TD>
+<INPUT TYPE="BUTTON" VALUE=" About " onClick="ShowAbout();">
+</TD><TD>
+<TABLE BORDER=3><TR><TD><INPUT TYPE="BUTTON" VALUE=" Exit " onClick="if (confirm('Quit Game: Are you SURE?')) {window.close()};"></TD></TR></TABLE>
+</TD></TR></TABLE>
+</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>8</TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(0);return false;" onMouseOver="fstatus(0);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(1);return false;" onMouseOver="fstatus(1);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(2);return false;" onMouseOver="fstatus(2);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(3);return false;" onMouseOver="fstatus(3);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(4);return false;" onMouseOver="fstatus(4);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(5);return false;" onMouseOver="fstatus(5);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(6);return false;" onMouseOver="fstatus(6);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(7);return false;" onMouseOver="fstatus(7);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD>8</TD>
+
+</TR>
+
+<TR>
+<TD>7</TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(8);return false;" onMouseOver="fstatus(8);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(9);return false;" onMouseOver="fstatus(9);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(10);return false;" onMouseOver="fstatus(10);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(11);return false;" onMouseOver="fstatus(11);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(12);return false;" onMouseOver="fstatus(12);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(13);return false;" onMouseOver="fstatus(13);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(14);return false;" onMouseOver="fstatus(14);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(15);return false;" onMouseOver="fstatus(15);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD>7</TD>
+
+</TR>
+
+<TR>
+<TD>6</TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(16);return false;" onMouseOver="fstatus(16);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(17);return false;" onMouseOver="fstatus(17);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(18);return false;" onMouseOver="fstatus(18);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(19);return false;" onMouseOver="fstatus(19);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(20);return false;" onMouseOver="fstatus(20);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(21);return false;" onMouseOver="fstatus(21);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(22);return false;" onMouseOver="fstatus(22);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(23);return false;" onMouseOver="fstatus(23);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD>6</TD>
+
+</TR>
+
+<TR>
+<TD>5</TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(24);return false;" onMouseOver="fstatus(24);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(25);return false;" onMouseOver="fstatus(25);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(26);return false;" onMouseOver="fstatus(26);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(27);return false;" onMouseOver="fstatus(27);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(28);return false;" onMouseOver="fstatus(28);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(29);return false;" onMouseOver="fstatus(29);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(30);return false;" onMouseOver="fstatus(30);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(31);return false;" onMouseOver="fstatus(31);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD>5</TD>
+
+</TR>
+
+<TR>
+<TD>4</TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(32);return false;" onMouseOver="fstatus(32);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(33);return false;" onMouseOver="fstatus(33);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(34);return false;" onMouseOver="fstatus(34);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(35);return false;" onMouseOver="fstatus(35);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(36);return false;" onMouseOver="fstatus(36);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(37);return false;" onMouseOver="fstatus(37);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(38);return false;" onMouseOver="fstatus(38);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(39);return false;" onMouseOver="fstatus(39);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD>4</TD>
+
+</TR>
+
+<TR>
+<TD>3</TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(40);return false;" onMouseOver="fstatus(40);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(41);return false;" onMouseOver="fstatus(41);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(42);return false;" onMouseOver="fstatus(42);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(43);return false;" onMouseOver="fstatus(43);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(44);return false;" onMouseOver="fstatus(44);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(45);return false;" onMouseOver="fstatus(45);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(46);return false;" onMouseOver="fstatus(46);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(47);return false;" onMouseOver="fstatus(47);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>2</TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(48);return false;" onMouseOver="fstatus(48);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(49);return false;" onMouseOver="fstatus(49);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(50);return false;" onMouseOver="fstatus(50);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(51);return false;" onMouseOver="fstatus(51);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(52);return false;" onMouseOver="fstatus(52);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(53);return false;" onMouseOver="fstatus(53);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(54);return false;" onMouseOver="fstatus(54);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(55);return false;" onMouseOver="fstatus(55);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD>2</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(56);return false;" onMouseOver="fstatus(56);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(57);return false;" onMouseOver="fstatus(57);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(58);return false;" onMouseOver="fstatus(58);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(59);return false;" onMouseOver="fstatus(59);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(60);return false;" onMouseOver="fstatus(60);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(61);return false;" onMouseOver="fstatus(61);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="gray"><A href="" onClick="Clk(62);return false;" onMouseOver="fstatus(62);return true;"><IMG src="b0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD BGCOLOR="white"><A href="" onClick="Clk(63);return false;" onMouseOver="fstatus(63);return true;"><IMG src="w0.gif" BORDER=0 HEIGHT=50 WIDTH=50 ALIGN=CENTER></A></TD>
+
+<TD>1</TD>
+</TR>
+
+<TR ALIGN=CENTER VALIGN=CENTER>
+<TD></TD>
+
+<TD>A</TD>
+
+<TD>B</TD>
+
+<TD>C</TD>
+
+<TD>D</TD>
+
+<TD>E</TD>
+
+<TD>F</TD>
+
+<TD>G</TD>
+
+<TD>H</TD>
+
+<TD></TD>
+</TR>
+</TABLE></CENTER></FORM>
+
+<P><SCRIPT language="JavaScript"><!--
+  InitMainWindow();
+  NewGame();
+  redrawstatus();
+  setTimeout("Timer()",1000);
+// --></SCRIPT>
+</P>
+
+</BODY>
+</HTML>
+

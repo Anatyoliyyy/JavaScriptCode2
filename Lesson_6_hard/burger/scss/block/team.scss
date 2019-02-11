@@ -1,0 +1,227 @@
+.team {
+	background-color: rgba(0, 0, 0, .31);
+	width: 100%;
+	height: 100%;
+	min-height: rem(650px);
+	overflow: hidden;
+	background: url('../img/background/bg-team.png') center center no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+.description__title {
+	font-size: rem(72px);
+	color: $cyellow;
+	@include gagalin();
+	margin-bottom: 1.625rem;
+	@include phones {
+		font-size: rem(50.09px);
+	}
+}
+
+.team {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.description {
+	position: absolute;
+	background: rgba(#2f3234, .93);
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	@include tablets {
+		width: 100%;
+	}
+}
+
+.description__team {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: center;
+	width: 70%;
+	height: 80%;
+
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.team-acco__content {
+	@include tablets {
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	@include phones {
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+}
+
+.team-acco__trigger {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	text-decoration: none;
+	@include gagalin();
+	font-style: rem(14px);
+	text-transform: uppercase;
+	margin-bottom: rem(17px);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&:before {
+		content: "";
+		width: 0;
+		height: 0;
+		border-top: rem(6px) solid #f9b43b;
+		border-right: rem(6px) solid transparent;
+		border-bottom: rem(6px) solid transparent;
+		border-left: rem(6px) solid transparent;
+		margin-right: rem(10px);
+		border-bottom-width: 0;
+		transition: all .5s;
+	}
+	@include tablets {
+		width: 13.6875rem;
+		white-space: nowrap;
+		display: flex;
+		justify-content: center;
+	}
+	@include phones {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+	}
+}
+
+.team-acco__item {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	transition-delay: all .5s;
+
+	&.team-acco__item--active {
+		transition: all .5s ease;
+		.team-acco__trigger {
+			color: #f9b43b;
+			&:before {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+}
+
+
+.team-acco__item--active .team-acco__content {
+	display: flex;
+}
+
+.team-acco__content {
+	margin-left: rem(20px);
+	margin-bottom: rem(39px);
+	display: none;
+	width: 100%;
+	height: 100%;
+	@include tablets {
+		margin-left: 0;
+	}
+}
+
+.team-acco__occup {
+	margin-bottom: rem(20px);
+	font-weight: 900;
+	color: #fff;
+}
+
+.team-acco__desc {
+	font-weight: 300;
+	font-family: 'ubuntu', Helvetica, sans-serif;
+	font-size: rem(14px);
+	display: flex;
+	@include tablets {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.team-acco__text {
+	color: #e0e0e0;
+	font-size: rem(14px);
+
+	@include ubuntu();
+	font-weight: 400;
+	width: rem(225px);
+	margin-left: rem(20px);
+	
+	@include tablets {
+		margin-left: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@include phones {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.team-acco__content-none {
+	display: none;
+}
+
+.team-acco__pic {
+	background: url('../img/content/aphex.png') center center no-repeat;
+	border-radius: 50%;
+	width: 6.25rem;
+	height: 6.25rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+	flex-shrink: 0;
+
+	@include tablets {
+		margin-bottom: 22px;
+	}
+}
+
+.team-acco {
+	display: flex;
+	flex-direction: column;
+
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		width: rem(348px);
+	}
+	@include phones {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+	}
+}

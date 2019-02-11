@@ -1,0 +1,544 @@
+<HTML>
+<FORM NAME="f_gfield">
+<HEAD>
+<TITLE>GAME FIELD</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var timerINT=200;                             //interval (ms)
+var tmps = new Array(13);                     //temp array
+var mapd = new Array(1791);                   //map data array
+var chrposX = 7;                              //character position
+var chrposY = 10;
+var oddflg  = 0;                              //1,3,5,7...=1
+var actptn  = 0;                              //stop=0 left=1 right=2
+var footflg = 1;                              //on the ground = 1
+var footbuf = 1;
+var blkchkflg = 0;                            //block hit flag
+var vspeed  = 0;                              //vertical speed
+var gameoverflg = 0;                          //GAME OVER =1
+var coin = 0;                                 //get coin cunter
+var timcount = 1000;                           //time count
+var i="0";
+var ia="0";
+var ib = 0;
+
+//paturn write
+function SetIcon(flag, position){
+document.images[position].src=icons[flag].src;
+}
+
+
+var icons = new Array(20);                          //block image
+icons[0]=new Image();icons[0].src="sky.gif";
+icons[1]=new Image();icons[1].src="block.gif";
+icons[2]=new Image();icons[2].src="coin.gif";
+icons[3]=new Image();icons[3].src="qn03.gif";
+icons[4]=new Image();icons[4].src="qn04.gif";
+icons[5]=new Image();icons[5].src="qn05.gif";
+icons[6]=new Image();icons[6].src="qn06.gif";
+
+icons[11]=new Image();icons[11].src="boy11.gif";
+icons[12]=new Image();icons[12].src="boy12.gif";
+icons[13]=new Image();icons[13].src="boy13.gif";
+icons[14]=new Image();icons[14].src="boy14.gif";
+icons[15]=new Image();icons[15].src="boy15.gif";
+icons[16]=new Image();icons[16].src="boy16.gif";
+icons[17]=new Image();icons[17].src="boy17.gif";
+icons[18]=new Image();icons[18].src="boy18.gif";
+icons[19]=new Image();icons[19].src="boy19.gif";
+icons[20]=new Image();icons[20].src="boy20.gif";
+icons[21]=new Image();icons[21].src="boy21.gif";
+icons[22]=new Image();icons[22].src="boy22.gif";
+icons[23]=new Image();icons[23].src="boy23.gif";
+icons[24]=new Image();icons[24].src="boy24.gif";
+icons[25]=new Image();icons[25].src="boy25.gif";
+icons[26]=new Image();icons[26].src="boy26.gif";
+
+function restart(){
+chrposX = 7;
+chrposY = 10;
+oddflg  = 0;
+actptn  = 0;
+footflg = 1;
+footbuf = 1;
+blkchkflg = 0;
+vspeed  = 0;
+gameoverflg = 0;
+coin = 0;
+timcount = 1000;
+i="0";
+ia="0";
+ib = 0;
+ib=chrposX*16-96;
+window.scroll(ib,16);
+document.f_gfield.pau.value="98";
+document.f_gfield.MES.value="0";
+iap="98";
+readstyle();
+parent.gscore.document.f_gscore.MES.value="CLICK START/RESET";
+parent.gscore.document.f_gscore.MES2.value="0";
+}
+
+function compload(){
+document.f_gfield.pau.value="0";
+interval1();
+}
+
+
+
+function interval1(){
+  iap=document.f_gfield.pau.value;
+urawaza=parent.gscore.document.f_gscore.MES.value
+if (urawaza == "TURBO"){timerINT=1}
+if (urawaza == "NORMAL"){timerINT=200}
+
+  timerID = setTimeout("interval1()",timerINT);
+if (iap == "99"){restart()};
+if (iap != "98"){;
+  timcount=timcount-1;
+  parent.gscore.document.f_gscore.MES.value=timcount;
+  ia=document.f_gfield.MES.value;
+  ibb=chrposY*128+chrposX+256;
+  ibc=chrposY*128+chrposX+257;
+  footbuf=footflg;
+  footflg=0;
+  if (actptn == 1){;
+    if (mapd[ibb] == "1"){;
+      footflg=1;
+    }else{;
+      if (oddflg == 0){;
+        if (mapd[ibc] == "1"){footflg=1};
+      };
+    };
+  }else{;
+    if (mapd[ibc] == "1"){;
+    footflg=1;
+    }else{;
+      if (oddflg == 0){;
+        if (mapd[ibb] == "1"){footflg=1};
+      };
+    };
+  };
+  if (vspeed >= 1){footflg=0};
+
+if (footflg == 1){;                          //on the ground
+
+  parent.gscore.document.f_gscore.MES2.value=coin;
+  iv=0;                                          //no action flag
+ if (ia == "00"){vspeed=4;
+                 document.f_gfield.MES.value="0";
+                 footflg=0;
+                 actptn=0};
+ if (ia == "01"){vspeed=4;
+                 document.f_gfield.MES.value="1";
+                 footflg=0;
+                 actptn=1};
+ if (ia == "02"){vspeed=4;
+                 document.f_gfield.MES.value="2";
+                 footflg=0;
+                 actptn=2};
+ if (vspeed != 4){;
+     if (footbuf == 0){;                    //flying end
+       ibX=chrposY*128+chrposX;
+        SetIcon (0,ibX);
+        SetIcon (0,ibX+1);
+        SetIcon (0,ibX+128);
+        SetIcon (0,ibX+129);
+     };
+ sideblockchk();
+ if (blkchkflg == 1){ia = "0"};
+
+ if (ia == "1") {;
+  if (chrposX >= 8){;
+     oddflg=oddflg+1;
+     iv=1;
+     if (oddflg >= 2){;
+       oddflg=0;
+       ib=chrposX*16-96;
+       if (actptn == 1){chrposX=chrposX-1};
+       ibX=chrposY*128+chrposX;
+       window.scroll(ib,16);
+       SetIcon (23,ibX);
+       SetIcon (24,ibX+1);
+       SetIcon (25,ibX+128);
+       SetIcon (26,ibX+129);
+     }else{;
+       ib=chrposX*16-96+8;
+       ibX=chrposY*128+chrposX;
+       window.scroll(ib,16);
+       SetIcon (17,ibX);
+       SetIcon (0,ibX+1);
+       SetIcon (18,ibX+128);
+       SetIcon (0,ibX+129);
+     };
+     blockclear();
+     actptn=1;
+  };
+ };
+
+ if (ia == "2") {;
+  if (chrposX <= 100){;
+     oddflg=oddflg+1;
+     iv=1;
+     if (oddflg >= 2){;
+       oddflg=0;
+       if(actptn == 2){chrposX=chrposX+1};
+       ib=chrposX*16-96;
+       ibX=chrposY*128+chrposX;
+       window.scroll(ib,16);
+       SetIcon (19,ibX);
+       SetIcon (20,ibX+1);
+       SetIcon (21,ibX+128);
+       SetIcon (22,ibX+129);
+     }else{;
+       ib=chrposX*16-96+8;
+       ibX=chrposY*128+chrposX;
+       window.scroll(ib,16);
+       SetIcon (0,ibX);
+       SetIcon (15,ibX+1);
+       SetIcon (0,ibX+128);
+       SetIcon (16,ibX+129);
+     };
+     blockclear();
+     actptn=2;
+  };
+ };
+
+ if (iv == 0){;
+       ib=chrposX*16-96;
+       ibX=chrposY*128+chrposX;
+       window.scroll(ib,16);
+       SetIcon (11,ibX);
+       SetIcon (12,ibX+1);
+       SetIcon (13,ibX+128);
+       SetIcon (14,ibX+129);
+       actptn=0;
+ };
+ };
+};
+if (footflg == 0){;                             //on the fly
+       if (ia == "01"){actptn=1;
+                       document.f_gfield.MES.value="1"};
+       if (ia == "02"){actptn=2;
+                       document.f_gfield.MES.value="2"};
+       vspeed=vspeed-1;
+       ibX=chrposY*128+chrposX;
+        SetIcon (0,ibX);
+        SetIcon (0,ibX+1);
+        SetIcon (0,ibX+128);
+        SetIcon (0,ibX+129);
+       sideblockchk();
+       if (blkchkflg == 1){actptn = 0};
+       if (vspeed <= -1){;
+         downblockchk();
+         vspeed=blkchkflg;
+       };
+       chrposY=chrposY-vspeed;
+       if (chrposY >= 12){gameoverflg=1;
+                          chrposY=12};
+       if (chrposY <= 0){vspeed=0;
+                         chrposY=0};
+       ibd=0;
+       if (actptn == 1){ibd=-1};
+       if (actptn == 2){ibd= 1};
+       chrposX=chrposX+ibd;
+       if (chrposX <= 7){chrposX=7;
+                         document.f_gfield.MES.value="0";
+                         actptn=0};
+       if (chrposX >= 101){chrposX=101;
+                         document.f_gfield.MES.value="0";
+                         actptn=0};
+       ibe=chrposX*16-96+ibd*8;
+       window.scroll(ibe,16);
+       ibX=chrposY*128+chrposX;
+       if (actptn == 1){;
+        SetIcon (23,ibX);
+        SetIcon (24,ibX+1);
+        SetIcon (25,ibX+128);
+        SetIcon (26,ibX+129);
+       }else{;
+        SetIcon (19,ibX);
+        SetIcon (20,ibX+1);
+        SetIcon (21,ibX+128);
+        SetIcon (22,ibX+129);
+       };
+       blockclear();
+};
+if (gameoverflg == 1){gameover()};
+if (chrposX == 101){;
+   if (chrposY == 10){;
+      if (actptn == 0){;
+         gameclear();
+      };
+   };
+};
+
+}else{;
+       ib=chrposX*16-96;
+       window.scroll(ib,16);
+};
+}                                           //function interval1() END
+
+function sideblockchk(){
+ blkchkflg=0;
+ tmpactptn=0;
+ if (actptn == 1){tmpactptn=-1};
+ if (actptn == 2){tmpactptn=2};
+ ilbc=chrposY*128+chrposX+tmpactptn;
+ if (mapd[ilbc] == "1"){blkchkflg=1};
+ if (mapd[ilbc+128] == "1"){blkchkflg=1};
+}
+
+function downblockchk(){
+ blkchkflg=vspeed;
+ tmpactptn=0;
+ if (actptn == 2){tmpactptn=1};
+ idbc=chrposY*128+chrposX+256+tmpactptn;
+ if (idbc <= 1792){;
+  if (mapd[idbc] != "1"){blkchkflg=-1;
+   if (vspeed <= -2){;
+    if (idbc <= 1664){;
+     if (mapd[idbc+128] != "1"){blkchkflg=-2;
+      if (vspeed <= -3){;
+       if (idbc <= 1536){;
+        if (mapd[idbc+256] != "1"){blkchkflg=-3;
+         if (vspeed <= -4){;
+          if (idbc <= 1408){;
+           if (mapd[idbc+384] != "1"){blkchkflg=-4;
+            if (vspeed <= -5){;
+             if (idbc <= 1280){;
+              if (mapd[idbc+512] != "1"){blkchkflg=-5;
+              };
+             };
+            };
+           };
+          };
+         };
+        };
+       };
+      };
+     };
+    };
+   };
+  };
+ };
+
+}
+
+function blockclear(){
+        if (mapd[ibX] == "2"){coin=coin+1};
+        mapd[ibX]="0";
+        if (mapd[ibX+1] == "2"){coin=coin+1};
+        mapd[ibX+1]="0";
+        if (mapd[ibX+128] == "2"){coin=coin+1};
+        mapd[ibX+128]="0";
+        if (mapd[ibX+129] == "2"){coin=coin+1};
+        mapd[ibX+129]="0";
+}
+
+function gscrl(){
+    i="1";
+    document.f_gfield.MES.value = i;
+}
+
+function gameover(){
+//clearTimeout(timerID);
+parent.gscore.document.f_gscore.MES.value="GAME OVER";
+document.f_gfield.pau.value="98";
+}
+
+function gameclear(){
+//clearTimeout(timerID);
+parent.gscore.document.f_gscore.MES.value="CONGRATULATION!!";
+Lscore=timcount*coin;
+parent.gscore.document.f_gscore.MES2.value="SCORE "+Lscore+" pts";
+document.f_gfield.pau.value="98";
+}
+
+function readstyle(){
+for (id=0; id<14; id++){;
+for (ie=0; ie<128; ie++){;
+ ig = tmps[id].charAt(ie);
+ ih = id*128+ie;
+   if (ig == "0"){mapd[ih] = 0};
+   if (ig == "1"){mapd[ih] = 1};
+   if (ig == "2"){mapd[ih] = 2};
+   if (ig == "3"){mapd[ih] = 3};
+   if (ig == "4"){mapd[ih] = 4};
+   if (ig == "5"){mapd[ih] = 5};
+   if (ig == "6"){mapd[ih] = 6};
+
+   SetIcon (mapd[ih],ih);
+};
+};
+ij=chrposY*128+chrposX;
+     SetIcon (11,ij);
+     SetIcon (12,ij+1);
+     SetIcon (13,ij+128);
+     SetIcon (14,ij+129);
+}
+
+function ie40(){
+ ver=navigator.appVersion
+ len=ver.length
+ for(iln=0;iln<len;iln++) if(ver.charAt(iln)=="(") break
+ systm = ver.charAt(iln+1).toUpperCase()
+ if(systm=="C"){tmpsys = ver.charAt(0).toUpperCase()
+                if (tmpsys == 4){window.scroll(0,550)}
+ }
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR="#80FFFF" TEXT="#004400" VLINK="#FF8844" ONLOAD="ie40()">
+<P><P><P><P><P><P>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+//screen fill
+document.write("<PRE>");
+for (iad=0; iad<14; iad++){;
+for (iac=0; iac<128; iac++){document.write("<IMG BORDER=0 WIDTH=16 HEIGHT=16 SRC='sky.gif'>")};
+document.write("<BR>");
+};
+document.write("</PRE>");
+//-->
+</SCRIPT>
+<PRE>
+
+
+
+
+
+
+   <FONT COLOR="#FF00FF" SIZE=+4>SUPER MARIONETTE</FONT>
+
+         Please wait for complete transfer!
+
+            When it complete, click GO!
+
+                     <INPUT TYPE="button" VALUE="  GO!  " ONCLICK="compload()">
+
+
+</PRE>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+window.scroll(0,550);
+
+//         123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 1234567 
+//        0         10        20        30        40        50        60        70        80        90        100       110       120      
+tmps[0] ="00000000000000000000000000220000002222220000000022020002020000022222000000000000000000000000000000000000000000111111111111111111";
+tmps[1] ="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111111";
+tmps[2] ="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111111";
+tmps[3] ="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111111";
+tmps[4] ="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111111";
+tmps[5] ="00000000000002222222222000000000000000000000000000000000000000111111110000000000000000000000000000000000000000111111111111111111";
+tmps[6] ="00000000000000000000000000111100000000000000000000000000000000122222110000000000000000000000011100000000000000111111111111111111";
+tmps[7] ="00000000000001111111111000111100001111111000000000000000000000100022110000000000000000000000011100000000000000111111111111111111";
+tmps[8] ="00000000000001111111111000000000001111111000000011100001010000111111110000000000000000000011111100000000000000111111111111111111";
+tmps[9] ="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111100000000000000111111111111111111";
+tmps[10]="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111100000000340000111111111111111111";
+tmps[11]="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111100000000560000111111111111111111";
+tmps[12]="11111111111111111111111100001111111111111111111111111111111111111111111110000111111111111111111111111111111111111111111111111111";
+tmps[13]="11111111111111111111111100001111111111111111111111111111111111111111111110000111111111111111111111111111111111111111111111111111";
+
+//read style data
+readstyle();
+
+//-->
+</SCRIPT>
+<PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+<INPUT TYPE="text" NAME="MES" SIZE=15 VALUE = "0" ><BR>
+<INPUT TYPE="text" NAME="pau" SIZE=15 VALUE = "98" ><BR>
+<P>
+</BODY>
+</FORM>
+</HTML>

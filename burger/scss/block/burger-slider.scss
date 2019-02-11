@@ -1,0 +1,443 @@
+.burger-slider {
+	width: 100%;
+	height: 100%;
+	min-height: rem(650px);
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background: linear-gradient(0deg, #f9b43b 0%, #eb8c38 47%, #f9b43b 73%);
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.container-slider {
+	height: 100%;
+	justify-content: center;
+}
+
+.content {
+	@include tablets {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	}
+}
+
+.burger-wrapper {
+	height: 100%;
+}
+
+.burger-content {
+	display: flex;
+
+		@include tablets {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		@include phones {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		@include iphone {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+	}
+
+.burger__black-star {
+	width: 27.75rem;
+	height: 18rem;
+	display: flex;
+	justify-content: center;
+
+	@include tablets {
+		width: 25.75rem;
+	}
+
+	@include phones {
+		width: 25.75rem;
+	}
+
+	@include iphone {
+		width: 25.75rem;
+	}
+
+	@include iphone6 {
+		width: 25.75rem;
+	}
+
+	@include iphone520 {
+		width: 25.75rem;
+	}
+
+	@include size930 {
+		width: 25.75rem;
+	}
+
+	@include iphone6s {
+		width: 25.75rem;
+	}
+
+	@include iphone6se {
+		width: 25.75rem;
+	}
+}
+
+.burger__compound {
+	width: rem(90px);
+	height: rem(90px);
+	background-color: #f08c33;
+	border-radius: rem(8px);
+	cursor: pointer;
+	position: relative;
+	transition: .6s;
+
+	&:hover {
+		transition: .6s;
+		background-color: #E25028;
+	}
+
+	@include tablets {
+		position: absolute;
+		left: 0;
+		top: 10%;
+	}
+
+	@include phones {
+		position: absolute;
+		left: 0;
+		top: 10%;
+	}
+
+	@include phones {
+		position: absolute;
+		left: 1%;
+		top: 50%;
+	}
+}
+
+.burger__list {
+	width: rem(270px);
+	height: rem(330px);
+	background: rgba(255, 255, 255, .9);
+	position: absolute;
+	padding: rem(20px);
+	border-radius: 6px;
+	top: 0;
+	left: rem(-9999px);
+	opacity: 0;
+	transition: opacity .6s; 
+}
+
+.burger__compound:hover .burger__list {
+	top: 0;
+	left: rem(90px);
+	opacity: 1;
+}
+
+.burger__link {
+	min-width: rem(98px);
+	padding: rem(10px) rem(15px);
+	border-radius: rem(5px);
+	background-color: $corange;
+	text-decoration: none;
+	color: $cwhite;
+	font-size: rem(13px);
+	text-transform: uppercase;
+	transition: .6s;
+	font-weight: 500;
+	display: inline-block;
+
+	&:hover {
+		background: darken($corange, 7%);
+	}
+}
+
+.burger__pic {
+	width: rem(38px);
+	height: rem(35px);
+	fill: #e25028;
+}
+
+.burger__name-item {
+	color: #3d3f40;
+	@include ubuntu();
+	font-size: rem(14px);
+}
+
+.burger__weight {
+	color: #3d3f40;
+	@include ubuntu();
+	font-size: rem(14px);
+}
+
+.burger__items {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding-bottom: rem(17px);
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
+
+.burger__pic-yellow {
+	fill: #f7b94a;
+}
+
+.burger__pic-salad {
+	fill: #8ac03e;
+}
+
+.burger__pic-cucumber {
+	fill: #8ac03e;
+}
+
+.burger__pic-cheese {
+	fill: #f7b94a;
+}
+
+// end of the drop-down menu
+
+.burger__svg {
+	width: rem(44px);
+	height: rem(42px);
+	fill: #fff;
+}
+
+.burger__text {
+	color: #fff;
+	@include gagalin();
+	font-size: rem(14px);
+	text-align: center;
+	letter-spacing: rem(1px);
+	padding-top: rem(10px);
+}
+
+.burger__svg-pic {
+	width: rem(60px);
+	height: rem(60px);
+	fill: #fff;
+	opacity: .5;
+}
+
+.burger__text-nutrition {
+	font-size: rem(14px);
+	@include gagalin();
+	opacity: 0.5;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	width: rem(60px);
+}
+
+.burger__nutrition {
+	font-size: rem(20px);
+	@include gagalin();
+	opacity: .5;
+	color: #fff;
+	position: absolute;
+	top: 88%;
+	left: 1.5%;
+
+	@include tablets {
+		top: 32%;
+		left: 22%;
+	}
+}
+
+.burger__nutrition-1200 {
+	top: 84%;
+	@include tablets {
+		top: 29%;
+	}
+}
+
+.burger__img {
+	max-width: 100%;
+}
+
+.burger__right-section {
+	display: flex;
+	flex-direction: column;
+
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.burger__title {
+	font-size: rem(72px);
+	@include gagalin();
+	color: #fff;
+	line-height: 1;
+	padding-bottom: rem(50px);
+	margin-bottom: 0;
+	text-shadow: 4px 6px 3px rgba(0, 0, 0, 0.64);
+
+	@include tablets {
+		padding-bottom: 0;
+		text-align: center;
+		font-size: rem(71px);
+	}
+
+	@include phones {
+		font-size: 3.4375rem;
+	}
+}
+
+.burger__desc p {
+	font-size: rem(14px);
+	color: #fff;
+	font-family: 'ubuntu', Arial, Helvetica, sans-serif;
+	font-weight: 100;
+	padding-bottom: rem(35px);
+
+	@include tablets {
+		padding-bottom: 0;
+		text-align: center;
+	}
+}
+
+.burger__price {
+	display: flex;
+	align-items: baseline;
+
+	@include tablets {
+		line-height: 1.42;
+	}
+}
+
+.burger__revenue {
+	@include gagalin();
+	font-size: rem(72px);
+	color: #e35028;
+	padding-right: rem(10px);
+	text-shadow: 4px 6px 3px rgba(0, 0, 0, 0.64);
+}
+
+.burger__ruble {
+	@include gagalin();
+	font-size: rem(30px);
+	color: #e35028;
+	padding-right: rem(30px);
+	text-shadow: 4px 6px 3px rgba(0, 0, 0, 0.64);
+}
+
+// arrows-start
+
+.burger__arrow-left {
+	position: absolute; 
+	width: rem(35px);
+	height: rem(15px);
+	top: 50%;
+	left: -5%;
+	transform: rotate(90deg);
+	fill: #fff;
+	z-index: 10;
+	cursor: pointer;
+
+	@include tablets {
+		top: 50%;
+		left: 0;
+	}
+
+	@include iphone6se {
+		top: 50%;
+		left: 0%;
+	}
+}
+
+.burger__arrow-right {
+	position: absolute;
+	width: rem(35px);
+	height: rem(15px);
+	top: 50%;
+	right: -5%;
+	transform: rotate(-90deg);
+	fill: #fff;
+	z-index: 10;
+	cursor: pointer;
+
+	@include tablets {
+		top: 50%;
+		right: 0%;
+	}
+
+	@include iphone6se {
+		top: 50%;
+		right: 0%;
+	}
+}
+
+// arrows-end
+
+.burger__compound {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	@include tablets {
+		position: absolute;
+		top: rem(50px);
+		right: 0;
+	}
+
+	@include phones {
+		top: 0;
+		left: 0;
+	}
+
+	@include iphone {
+		left: 0;
+	}
+}
+
+.burger__nutrition-value {
+	@include tablets {
+		position: absolute;
+		top: 10%;
+		right: 0;
+	}
+
+	@include phones {
+		right: 1%;
+		top: 1%;
+	}
+	@include iphone {
+		right: 0;
+	}
+
+}
+
+.bx-wrapper {
+	margin-bottom: 0;
+	box-shadow: none;
+	border: none;
+	background: none;
+}
+
+.bx-wrapper .bx-pager {
+	padding-top: 0;
+	display: none;
+}
+
+.bx-prev {
+	display: none;
+}
+
+.bx-next {
+	display: none;
+}

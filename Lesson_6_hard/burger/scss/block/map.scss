@@ -1,0 +1,194 @@
+// section-map
+
+.map {
+	width: 100%;
+	height: 100%;
+	min-height: rem(650px);
+	overflow: hidden;
+	background-color: rgba(0,0,0,0.31);
+	padding-bottom: rem(58px);
+}
+
+#map__content {
+	width: 100%;
+	height: 100%;
+
+	@include tablets {
+		height: 100%;
+	}
+}
+
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	height: rem(58px);
+	width: 100%;
+	background-color: #0f0f0f;
+	@include ubuntu();
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	@include phones {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: rem(115px);
+	}
+}
+
+.footer__left {
+	width: 50%;
+	padding: rem(11px) 0 rem(11px);
+
+	@include iphone6 {
+		width: 100%;
+		white-space: nowrap;
+	}
+
+	@include iphone {
+		width: 100%;
+	}
+}
+
+.footer__right {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	@include phones {
+		justify-content: center;
+	}
+
+	@include iphone {
+		width: 100%;
+	}
+}
+
+.social__buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer__address {
+	color: #fff;
+	font-size: rem(14px);
+	font-style: normal;
+	width: 100%;
+
+	@include phones {
+		white-space: nowrap;
+		margin-bottom: rem(10px);
+		width: 100%;
+	}
+
+	@include iphone {
+		font-size: rem(14px);
+		width: 100%;
+	}
+}
+
+.footer__phone {
+	@include phones {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+
+	@include iphone {
+		align-items: center;
+		justify-content: center;
+		padding: rem(5px) 0 rem(5px) 0;
+		width: 100%;
+	}
+}
+
+.footer__contacts {
+	color: #ab3e21;
+	font-size: rem(14px);
+	text-decoration: none;
+	font-weight: 900;
+	display: flex;
+	align-items: center;
+
+	&:before {
+		content: "";
+		background-image: url('../img/icons-svg/phone.svg');
+		background-repeat: no-repeat;
+		display: block;
+		width: rem(12px);
+		height: rem(12px);
+		margin-right: rem(8px);
+
+		@include iphone {
+			width: rem(17px);
+			height: rem(17px);
+		}
+	}
+
+	@include tablets {
+		font-size: rem(14px);
+	}
+
+	@include phones {
+		font-size: 1rem;
+	}
+
+	@include iphone {
+		justify-content: center;
+	}
+}
+
+.container__menu {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	@include phones {
+		height: rem(115px);
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		margin-right: 0;
+		width: 100%;
+		text-align: center;
+	}
+
+	@include iphone {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		margin-left: 0;
+		width: 100%;
+	}
+
+}
+
+.social__link {
+	display: block;
+	width: rem(25px);
+	height: rem(25px);
+	fill: #5c5c5c;
+	margin-right: rem(20px);
+	cursor: pointer;
+	transition: all .3s;
+
+	&:hover {
+		fill: #ffffff;
+		transition: all .3s;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+
+
+
+

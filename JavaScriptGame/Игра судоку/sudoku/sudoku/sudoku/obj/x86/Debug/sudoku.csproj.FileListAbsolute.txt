@@ -1,0 +1,153 @@
+C:\Documents and Settings\admin\Мои документы\SharpDevelop Projects\sudoku\sudoku\bin\Debug\sudoku.exe
+C:\Documents and Settings\admin\Мои документы\SharpDevelop Projects\sudoku\sudoku\bin\Debug\sudoku.pdb
+C:\Documents and Settings\admin\Мои документы\SharpDevelop Projects\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\admin\Мои документы\SharpDevelop Projects\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+C:\Documents and Settings\admin\Мои документы\SharpDevelop Projects\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\admin\Мои документы\SharpDevelop Projects\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\admin\Мои документы\SharpDevelop Projects\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+C:\Documents and Settings\admin\Мои документы\SharpDevelop Projects\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+D:\ШАГ\sudoky\sudoku\sudoku\bin\Debug\sudoku.exe
+D:\ШАГ\sudoky\sudoku\sudoku\bin\Debug\sudoku.pdb
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+H:\ШАГ\sudoky\sudoku\sudoku\bin\Debug\sudoku.exe
+H:\ШАГ\sudoky\sudoku\sudoku\bin\Debug\sudoku.pdb
+H:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+H:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+H:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog
+H:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+H:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+H:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.butun.resources
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.butun.resources
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.butun.resources
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+G:\ШАГ\sudoky\sudoku\sudoku\bin\Debug\sudoku.exe
+G:\ШАГ\sudoky\sudoku\sudoku\bin\Debug\sudoku.pdb
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.menu.resources
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.author.resources
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.settings.resources
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.variants.resources
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.4.tlog
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.author.resources
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.menu.resources
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.settings.resources
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.variants.resources
+D:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.4.tlog
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.warning.resources
+G:\ШАГ\sudoky\sudoku\sudoku\obj\x86\Debug\sudoku.the_transition_to_a_new_level.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku_MarkupCompile.cache
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.g.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.author.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.butun.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.menu.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.settings.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.the_transition_to_a_new_level.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.variants.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\sudoku.warning.resources
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.4.tlog
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.2.tlog
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\WindowS.baml
+\\192.168.0.107\print\78\sudoku\sudoku\obj\x86\Debug\WindowS.g.cs
+\\192.168.0.107\print\78\sudoku\sudoku\bin\Debug\sudoku.exe
+\\192.168.0.107\print\78\sudoku\sudoku\bin\Debug\sudoku.pdb
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\bin\Debug\sudoku.exe
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\bin\Debug\sudoku.pdb
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\WindowS.baml
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\WindowS.g.cs
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku_MarkupCompile.cache
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.g.resources
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.author.resources
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.butun.resources
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.menu.resources
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.settings.resources
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.the_transition_to_a_new_level.resources
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.variants.resources
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.warning.resources
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.2.tlog
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+G:\ШАГ\sudoky\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.4.tlog
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\bin\Debug\sudoku.exe
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\bin\Debug\sudoku.pdb
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.author.resources
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.butun.resources
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.menu.resources
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.settings.resources
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.the_transition_to_a_new_level.resources
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.variants.resources
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.2.tlog
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.4.tlog
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+\\192.168.0.107\print\74\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+G:\ШАГ\Новая папка\sudoku\sudoku\bin\Debug\sudoku.exe
+G:\ШАГ\Новая папка\sudoku\sudoku\bin\Debug\sudoku.pdb
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.author.resources
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.butun.resources
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.menu.resources
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.settings.resources
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.the_transition_to_a_new_level.resources
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.variants.resources
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.2.tlog
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.4.tlog
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+G:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.author.resources
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.butun.resources
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.menu.resources
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.settings.resources
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.the_transition_to_a_new_level.resources
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.variants.resources
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.2.tlog
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.4.tlog
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+D:\ШАГ\Новая папка\sudoku\sudoku\bin\Debug\sudoku.exe
+D:\ШАГ\Новая папка\sudoku\sudoku\bin\Debug\sudoku.pdb
+D:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.exe
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.pdb
+F:\ШАГ\Новая папка\sudoku\sudoku\bin\Debug\sudoku.exe
+F:\ШАГ\Новая папка\sudoku\sudoku\bin\Debug\sudoku.pdb
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.author.resources
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.butun.resources
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.MainForm.resources
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.menu.resources
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.settings.resources
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.the_transition_to_a_new_level.resources
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\sudoku.variants.resources
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.2.tlog
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.read.4.tlog
+F:\ШАГ\Новая папка\sudoku\sudoku\obj\x86\Debug\GenerateResource.write.1.tlog

@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+#accordeon {
+	width: 400px;
+	border: 10px solid #fff;
+	box-shadow: 0 0 10px grey;
+	margin: 10px;
+}
+.acc-head {
+    padding: 5px 10px;
+    color: #fff;
+	background: #b2b432;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.acc-body {
+	padding: 10px;
+	border-bottom: 1px solid #c0c0c0;
+	margin-bottom: 5px;
+	display: none;
+}

@@ -1,0 +1,160 @@
+// section-webest
+.container-overrided {
+	display: flex;
+	flex-direction: column;
+	width: 95%;
+	text-align: center;
+	height: 100%;
+	justify-content: center;
+}
+
+.wearebest {
+	background-image: url('../img/background/bg-tomato.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@include tablets {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+}
+
+.title {
+	font-size: rem(72px);
+	color: $cdark;
+	font-family: $gfont;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: rem(80px) 0 rem(90px);;
+}
+
+.best-title {
+	align-items: center;
+	font-size: rem(72px);
+	@include gagalin();
+	padding-bottom: rem(50px);
+	margin: 0;
+	text-shadow: 3px 6px 3px rgba(148, 150, 150, 0.64);
+
+	@include tablets {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	@include phones {
+		white-space: nowrap;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.burger__title {
+	width: rem(350px);
+}
+
+.items {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+
+	@include tablets {
+		width: 100%;
+	}
+		@include phones {
+			flex-direction: column;
+		}
+	} 
+
+
+.items__img {
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-left: 0;
+	}
+
+	@include phones {
+	display: flex;
+	margin-left: 0;
+	}
+}
+
+.items__img-hand {
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.items__img-leaf {
+
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	@include phones {
+		margin-bottom: 0;
+	}
+
+}
+
+.items__list {
+	width: 33%;
+	@include phones {
+		display: flex;
+		width: 100%;
+}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.item__svg-img {
+	display: flex;
+    justify-content: center;
+	align-items: center;
+	margin-bottom: rem(35px);
+}
+
+.text-title {
+	@include lifehack();
+	font-size: rem(24.1px);
+	color: $cdark;
+	margin-bottom: rem(25px);
+	text-align: center;
+
+	@include tablets {
+		text-align: center;
+	}
+
+	@include iphone6se {
+		margin-bottom: 0;
+	}
+}
+
+.text__descript p {
+	line-height: 1.42;
+	font-size: rem(14.03px);
+	color: #6b6a6a;
+	font-weight: 500;
+	font-family: 'Myriad Pro';
+	text-align: center;
+}
+
+

@@ -1,0 +1,144 @@
+.testimonials {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.comments {
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
+}
+
+.comments__items {
+	width: 25%;
+	height: 50%;
+	background-size: cover;
+	background-position: 50%, 50%;
+	background-repeat: no-repeat;
+	filter: grayscale(100%);
+	position: relative;
+	@include tablets {
+		width: 50%;
+		height: 25%;
+	}
+	@include phones {
+		&:hover {
+			filter: grayscale(30%);
+		}
+	}
+}
+
+.review {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(#454545, .5);
+	opacity: 0;
+	transition: .5s;
+	padding: 1.125rem 1.5rem;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	&:hover {
+		opacity: 1;
+		transition: .5s cubic-bezier(0.25, 0.1, 0.56, 0.37);
+		border: rem(1px) solid #454545;
+	}
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.review__name {
+	@include gagalin();
+	font-size: rem(14px);
+	padding-bottom: rem(25px);
+
+	@include tablets {
+		padding-bottom: 0;
+	}
+	@include phones {
+		font-size: rem(17px);
+		text-align: center;
+		margin-bottom: rem(20px);
+	}
+
+	@include iphone {
+		text-align: center;
+		margin-bottom: rem(10px);
+	}
+}
+
+.review__text {
+	@include ubuntu();
+	font-size: rem(14px);
+	padding-bottom: rem(25px);
+	@include tablets {
+		padding-bottom: 0;
+		width: 13.6875rem;
+		text-align: center;
+	}
+	@include phones {
+		display: none;
+	}
+
+	@include size930 {
+		font-size: rem(12px);
+	}
+}
+
+.review__btn {
+	padding: rem(13px) rem(13px);
+	border: rem(1px) solid #2f3234;
+	width: rem(130px);
+	background-color: #2f3234;
+	border-radius: rem(6px);
+	text-align: center;
+	text-transform: uppercase;
+	cursor: pointer;
+	
+	&:hover {
+		background-color: darken(#e45028, 10%);
+	}
+	@include tablets {
+		padding: rem(9px) rem(9px);
+		font-size: rem(14px);
+		text-align: center;
+	}
+
+	@include size930 {
+		padding: rem(12px) rem(12px);
+	}
+
+
+}
+
+.review__link {
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.comments__seo {
+	position: absolute;
+	top: 0;
+	left: rem(-9999px);
+}
+
+.popup {
+	display: none;
+	text-align: center;
+	width: rem(300px);
+}
+
+.popup p {
+	margin-bottom: 15px;
+}

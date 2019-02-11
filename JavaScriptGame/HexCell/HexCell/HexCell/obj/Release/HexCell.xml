@@ -1,0 +1,121 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+HexCell
+</name>
+</assembly>
+<members>
+<member name="P:HexCell.HexGridCellCtrl.Column">
+	<summary>
+ The column (1-16) that contains this cell
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>This value is read left to right
+ </remarks>
+</member><member name="P:HexCell.HexGridCellCtrl.Row">
+	<summary>
+ The row (1-16) that contains this cell
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>This value is read from top to bottom
+ </remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.EliminatePossibleValue(HexCell.HexGridCellCtrl.CellPossibleValues)">
+	<summary>
+ Removes a cell value from the set of possibilities for this grid cell
+ </summary>
+	<param name="Value"></param>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.SetToValue(HexCell.HexGridCellCtrl.CellPossibleValues)">
+	<summary>
+ Sets this cell to only contain one possible value....
+ </summary>
+	<param name="Value">The particluar value to set this cell to</param>
+	<remarks>
+ Although this can be set to multiple possibilities (i.e. CellValue_2 OR CellValue_6 ) to do so is 
+ confusing to the human operator.  Use <see cref="M:HexCell.HexGridCellCtrl.EliminatePossibleValue(HexCell.HexGridCellCtrl.CellPossibleValues)">EliminatePossiblevalue</see> to 
+ narrow down the possible values in the cell
+ </remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.ToString">
+	<summary>
+ Returns row,column
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.Drawcell(System.Drawing.Graphics,System.Drawing.Rectangle)">
+	<summary>
+ Draws this cell onto the graphics object passed in, with a 4x4 grid of possible values
+ </summary>
+	<param name="g"></param>
+	<param name="rcBounds"></param>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.AllPossibleValues">
+	<summary>
+ Returns a value indicating that the cell can hold all possible values
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCtrl.#ctor(System.Int16,System.Int16)">
+	<summary>
+ Creates a new empty cell at the position specified
+ </summary>
+	<param name="RowIn">The row that this cell is in</param>
+	<param name="ColumnIn">The column that this cell is in</param>
+	<remarks></remarks>
+</member><member name="P:HexCell.HexGridValueMouseClickEventArgs.Button">
+	<summary>
+ Which button was pressed on the coloured cell value entry
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>
+	</remarks>
+</member><member name="P:HexCell.HexGridValueMouseClickEventArgs.Value">
+	<summary>
+ Which of the possible values it was clicked over
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:HexCell.HexGridValueMouseClickEventArgs">
+	<summary>
+ Event argument for when a mouse click occurs on one of the coloured counters.
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:HexCell.HexGridCellPossibleValuesDecoder.ToBooleanList(HexCell.HexGridCellCtrl.CellPossibleValues)">
+	<summary>
+ Returns a list of integer (0-15) and whether or not they are a possible value in the values passed in
+ </summary>
+	<param name="Possiblevalues"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGridCellCollection.#ctor">
+	<summary>
+ Creates a new empty 16x16 grid of HexGridCell objects
+ </summary>
+	<remarks></remarks>
+</member><member name="T:HexCell.HexGridCellCollection">
+	<summary>
+ Represents the 64 cells that make up a hex grid
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:HexCell.HexGrid.ResetGridCellCollection">
+	<summary>
+ Clears the grid cell collection to an empty (unsolved) grid
+ </summary>
+	<remarks></remarks>
+</member><member name="M:HexCell.HexGrid.GridCellLocationRectangle(System.Int32,System.Int32)">
+	<summary>
+ Returns a rectangle representing the boundary of a given grid cell position
+ </summary>
+	<param name="Row"></param>
+	<param name="Column"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

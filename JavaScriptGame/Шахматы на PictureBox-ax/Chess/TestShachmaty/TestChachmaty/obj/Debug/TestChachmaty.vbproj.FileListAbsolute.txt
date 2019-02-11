@@ -1,0 +1,30 @@
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\bin\Debug\TestChachmaty.exe.config
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\bin\Debug\TestChachmaty.exe
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\bin\Debug\TestChachmaty.pdb
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\bin\Debug\TestChachmaty.xml
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\obj\Debug\TestChachmaty.Form1.resources
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\obj\Debug\TestChachmaty.Resources.resources
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\obj\Debug\TestChachmaty.vbproj.GenerateResource.Cache
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\obj\Debug\TestChachmaty.exe
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\obj\Debug\TestChachmaty.xml
+C:\Users\Akiva\AppData\Local\Temporary Projects\TestChachmaty\obj\Debug\TestChachmaty.pdb
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\bin\Debug\TestChachmaty.exe.config
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\obj\Debug\TestChachmaty.exe
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\obj\Debug\TestChachmaty.xml
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\obj\Debug\TestChachmaty.pdb
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\bin\Debug\TestChachmaty.exe
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\bin\Debug\TestChachmaty.pdb
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\bin\Debug\TestChachmaty.xml
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\obj\Debug\TestChachmaty.Form1.resources
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\obj\Debug\TestChachmaty.Resources.resources
+D:\ProgVBN2012\TestChachmaty\TestChachmaty\obj\Debug\TestChachmaty.vbproj.GenerateResource.Cache
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\bin\Debug\TestChachmaty.exe.config
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\obj\Debug\TestChachmaty.exe
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\obj\Debug\TestChachmaty.xml
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\obj\Debug\TestChachmaty.pdb
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\bin\Debug\TestChachmaty.exe
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\bin\Debug\TestChachmaty.pdb
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\bin\Debug\TestChachmaty.xml
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\obj\Debug\TestChachmaty.Form1.resources
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\obj\Debug\TestChachmaty.Resources.resources
+D:\ProgVBN2012\TestShachmaty\TestChachmaty\obj\Debug\TestChachmaty.vbproj.GenerateResource.Cache

@@ -1,0 +1,29 @@
+#fieldElement {
+    line-height: 10px;
+  }
+   
+  .cell {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
+    background-color: white;
+    outline: 1px solid black;
+  }
+   
+  .cell.bomb {
+    background-color: black;
+  }
+   
+  .cell.check {
+    background-color: gray;
+  }
+   
+  .cell.num {
+    background-color: gray;
+    font: 9px sans-serif;
+  }
+   
+  .cell.flag {
+    background-color: red;
+  }

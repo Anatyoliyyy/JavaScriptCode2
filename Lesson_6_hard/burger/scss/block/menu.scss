@@ -1,0 +1,104 @@
+.menu {
+	background-color: #ccc;
+	height: 100%;
+	width: 100%;
+	min-height: rem(650px);
+	background: url("../img/background/meat.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+}
+
+.menu__text {
+	font-size: rem(72px);
+	@include gagalin();
+	color: #fff;
+	position: absolute;
+	left: 5%;
+	top: 5%;
+	margin-bottom: 0;
+
+	@include iphone6se {
+		font-size: 4rem;
+		left: 5%;
+		top: 5%;
+	}
+}
+
+.variety-acco {
+	display: flex;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	@include tablets {
+		justify-content: flex-end;
+	}
+	@include phones {
+		justify-content: flex-end;
+	}
+}
+
+.variety-acco__items {
+	display: flex;
+	&.variety-acco__items--active {
+		.variety-acco__block {
+			display: block;
+			transition: all .6s ease-in;
+		}
+	}
+}
+
+.variety-acco__img {
+	height: 100%;
+	width: rem(80px);
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	&:after {
+		position: absolute;
+		content: "";
+		background: rgba(#141414, .7);
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+.variety-acco__trigger {
+	transform: rotate(270deg);
+	color: #fff;
+	@include gagalin();
+	font-size: rem(40px);
+	text-decoration: none;
+	white-space: nowrap;
+	z-index: 1;
+	display: flex;
+	&.variety-acco__trigger--active {
+		color: #f9b43b;
+	}
+}
+
+.variety-acco__block {
+	width: rem(540px);
+	display: none;
+	background-color: rgba(#353332, .93);
+	@include tablets {
+		opacity: 1;
+		width: 100%;
+	}
+}
+
+.variety-acco__text {
+	padding: rem(60px) rem(35px);
+	font-weight: 100;
+	@include ubuntu();
+	font-size: rem(14px);
+	color: #fff;
+}

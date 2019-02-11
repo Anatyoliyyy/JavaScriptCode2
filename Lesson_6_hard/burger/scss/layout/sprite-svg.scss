@@ -1,0 +1,42 @@
+.social__pic {
+	width: rem(22px);
+	height: rem(22px);
+	fill: #5c5c5c;
+	margin-right: rem(20px);
+	cursor: pointer;
+	transition: all .3s;
+
+	&:hover {
+		fill: #ffffff;
+		transform: scale(1.1);
+		transition: all .3s;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.items__img {
+	width: rem(100px);
+	height: rem(90px);
+	fill: $corange;
+	text-align: center;
+}
+
+.items__img-hand {
+	fill: #f8b43a;
+	width: rem(100px);
+	height: rem(90px);
+	text-align: center;
+}
+
+.items__img-leaf {
+	fill: #9bc75a;
+	width: rem(100px);
+	height: rem(90px);
+	text-align: center;
+}
+
+
+

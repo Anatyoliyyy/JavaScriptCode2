@@ -1,0 +1,42 @@
+<HTML>
+<FORM NAME="f_gscore">
+<HEAD>
+<TITLE>GAME SCORE</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var pauseflg=1;
+var pafl = "99";
+
+function gsend2(pafl){;
+parent.gfield.document.f_gfield.pau.value=pafl;
+};
+
+function btn3clk(){;
+pauseflg=pauseflg+1;
+if (pauseflg == 1){gsend2("0")};
+if (pauseflg == 2){pauseflg=0;
+                   gsend2("99")};
+};
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR="#CCFFCC" TEXT="#000044" LINK "#CCFFCC" VLINK="#CCFFCC">
+SUPER MARIONETTE<BR>
+<P>
+<P>
+<HR>
+TIME<BR>
+<INPUT TYPE="text" NAME="MES" SIZE=20 VALUE = "0" ><BR>
+<P>
+COIN<BR>
+<INPUT TYPE="text" NAME="MES2" SIZE=20 VALUE = "0" ><BR>
+<P>
+<CENTER><A HREF="javascript:btn3clk()"><IMG SRC="btn3.gif"></A></CENTER>
+<HR>
+<CENTER><A HREF="http://www1.nisiq.net/~jimmeans/welcome.html" TARGET="_top"><IMG SRC="btn4.gif"></A></CENTER>
+
+</BODY>
+</FORM>
+</HTML>
